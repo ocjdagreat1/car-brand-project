@@ -5,14 +5,17 @@ import CarLogo from "../assets/images/logo.svg";
 import AppStore from "../assets/images/apple.png";
 import GooglePlay from "../assets/images/google.png";
 
+
 const Footer = () => {
   const links = [
-    { label: "About us", path: "/about" },
+    { label: "About us", path: "/AboutUs" }, 
     { label: "About cookies", path: "/cookies" },
     { label: "Digital Service Book", path: "/" },
     { label: "Inpection Date", path: "/" },
     { label: "Terms of use", path: "/terms" },
+    
   ];
+  
 
   return (
     <Box
