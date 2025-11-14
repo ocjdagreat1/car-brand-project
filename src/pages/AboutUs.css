@@ -24,7 +24,7 @@
 
 
 .about-page {
-  background-color: whitesmoke;
+  background-color: rgb(219, 215, 215);
   color: rgb(12, 12, 11);
   margin: 50px;
   font-size: large;
@@ -44,7 +44,7 @@
     padding: 2rem;
     max-width: 800px;
     margin: 0 auto;
-    background-color: #f9f9f9;
+    background-color: #e0e0e0;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     font-family: Arial, sans-serif;
@@ -189,7 +189,7 @@
     padding: 2rem;
     max-width: 800px;
     margin: 0 auto;
-    background-color: #f9f9f9;
+    background-color: #faf6f6;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     font-family: Arial, sans-serif;
@@ -223,4 +223,21 @@
   padding-right: 90px;
   
   
+}
+
+
+.stats-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.card1 {
+  background: rgb(173, 173, 173);
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  min-width: 250px;
+  text-align: center;
 }

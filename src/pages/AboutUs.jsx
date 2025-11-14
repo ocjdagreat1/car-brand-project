@@ -95,9 +95,9 @@ const AboutUs = () => {
     </div>
   </div>
         <div class="column">
-    <div class="card">
-      <img src={img2} alt="" />
-      <div class="container">
+        <div class="card">
+        <img src={img2} alt="" />
+          <div class="container">
         <h2>Mr justine</h2>
         <p class="title">co-developer</p>
         
@@ -111,20 +111,7 @@ const AboutUs = () => {
     <img src={img3} alt="" />
       <div class="container">
         
-        <h2>Mr Winner</h2>
-        <p class="title">co-developer</p>
-        
-        
-      </div>
-    </div>
-  </div>
-
-        <div class="column">
-    <div class="card">
-    <img src={img} alt="" />
-      <div class="container">
-        
-        <h2>Mr Winner</h2>
+        <h2>Mr chijioke</h2>
         <p class="title">co-developer</p>
         
         
@@ -139,7 +126,7 @@ const AboutUs = () => {
       <div class="container">
         
         <h2>Mr Winner</h2>
-        <p class="title">co-developer</p>
+        <p class="title">Co-developer</p>
         
         
       </div>
@@ -151,12 +138,12 @@ const AboutUs = () => {
      
       {/* Section: Statistics */}
       <section className="statistics-section">
-        <h2>Statistics</h2>
-        <ul>
-          <li>1,500,000 visitors per week (May 2023)</li>
-          <li>700,000 verified members (August 2024)</li>
-          <li>40 coworkers at Car.info (January 2024)</li>
-        </ul>
+         <h2>Statistics</h2>
+       <div className="stats-cards">
+         <div className="card1">1,500,000 visitors per week (May 2023)</div>
+         <div className="card1">700,000 verified members (August 2024)</div>
+         <div className="card1">40 coworkers at Car.info (January 2024)</div>
+         </div>
       </section>
 
       
