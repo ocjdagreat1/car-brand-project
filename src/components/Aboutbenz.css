@@ -1,0 +1,53 @@
+.container{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    height: auto;
+    
+    font-family: Arial, Helvetica, sans-serif;
+    span{
+        border-bottom: 4px solid gold;
+    }
+
+    h1{
+        padding-bottom: 30px;
+    }
+}
+
+.benzingermany{
+    width: 45%;
+    margin: 20px 5px;
+
+    li{
+        padding-bottom: 10px;
+    }
+    p{
+        padding-bottom: 20px;
+    }
+}
+
+.aboutbenz{
+    width: 40%;
+     margin: 20px 10px;
+    p{
+        padding-bottom: 40px;
+      
+    }
+}
+
+@media (max-width: 412px){
+    .container{
+        flex-wrap: wrap;
+        flex-direction: column;
+          h1{
+            font-size: 25px;
+          }
+    }
+    .benzingermany{
+        width: 100%;
+    }
+
+    .aboutbenz{
+        width: 100%;
+    }
+}

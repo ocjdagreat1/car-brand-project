@@ -5,6 +5,13 @@ import HomePage from './pages/HomePage'
 import Footer from './components/Footer'
 import Dashboard  from './pages/Dashboard'
 import Volvo from './pages/Volvo'
+import Mercedes from './pages/Mercedes'
+import Benzcard from './components/Benzcard'
+import Benzmap from './components/Benzmap'
+import Benztable from './components/Benztable'
+import Volvocard from './components/Volvocard'
+import Volvomap from './components/Volvomap'
+import Volvotable from './components/Volvotable'
 
 
 function App() {
@@ -16,6 +23,13 @@ function App() {
         <Route path='/' element ={<HomePage/>}/>
         <Route path='/dashboard' element ={<Dashboard/>}/>
         <Route path='/Volvo' element={<Volvo/>}/>
+        <Route path='/Mercedes' element={<Mercedes/>}/>
+        <Route path='/Benzmap' element={<Benzmap/>}/>
+        <Route path='/Benzcard' element={<Benzcard/>}/>
+        <Route path='/Benztable' element={<Benztable/>}/>
+        <Route path='/Volvomap' element={<Volvomap/>}/>
+        <Route path='/Volvocard' element={<Volvocard/>}/>
+        <Route path='/Volvotable' element={<Volvotable/>}/>
       </Routes>
       <Footer/>
 
