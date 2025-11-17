@@ -23,7 +23,7 @@ function App() {
         <Route path='/brand/volvo' element={<Volvo />} />
 
         {/* Other branch routes */}
-        <Route path='/Volvo' element={<Volvo />} />
+        
         <Route path='/AboutUs' element={<AboutUs />} />
       </Routes>
 

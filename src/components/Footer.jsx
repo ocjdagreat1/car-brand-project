@@ -22,16 +22,10 @@ const Footer = () => {
   const links = [
     { label: "About us", path: "/AboutUs" }, 
     { label: "About cookies", path: "/cookies" },
-    { label: "Digital Service Book", path: "/" },
-<<<<<<< HEAD
-    { label: "Inspection Date", path: "/" },
-    { label: "Terms of use", path: "/terms" }
-=======
-    { label: "Inpection Date", path: "/" },
-    { label: "Terms of use", path: "/terms" },
-    
->>>>>>> ef5d90523b64c96f365bd0874c6c8e9fbf6ba80b
-  ];
+    { label: "Digital Service Book", path: "/digital" },
+    { label: "Inspection Date", path: "/inspection" },
+    { label: "Terms of use", path: "/terms" } ,
+     ];
   
 
   return (
