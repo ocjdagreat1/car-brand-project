@@ -13,18 +13,26 @@ import CarLogo from "../assets/images/logo.svg";
 import AppStore from "../assets/images/apple.png";
 import GooglePlay from "../assets/images/google.png";
 
+
 const Footer = () => {
   const [openFeedback, setOpenFeedback] = useState(false);
   const handleOpenFeedback = () => setOpenFeedback(true);
   const handleCloseFeedback = () => setOpenFeedback(false);
 
   const links = [
-    { label: "About us", path: "/about" },
+    { label: "About us", path: "/AboutUs" }, 
     { label: "About cookies", path: "/cookies" },
     { label: "Digital Service Book", path: "/" },
+<<<<<<< HEAD
     { label: "Inspection Date", path: "/" },
     { label: "Terms of use", path: "/terms" }
+=======
+    { label: "Inpection Date", path: "/" },
+    { label: "Terms of use", path: "/terms" },
+    
+>>>>>>> ef5d90523b64c96f365bd0874c6c8e9fbf6ba80b
   ];
+  
 
   return (
     <Box
