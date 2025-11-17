@@ -76,8 +76,8 @@ const AboutUs = () => {
     <div class="card">
       <img src={img} alt="" />
       <div class="container">
-        <h2>John Doe</h2>
-        <p class="title">co-developer</p>
+        <h2>chijioke winner</h2>
+        <p class="title">Co-developer</p>
         
       </div>
     </div>
@@ -89,7 +89,7 @@ const AboutUs = () => {
       <img src={img1} alt="" />
       <div class="container">
         <h2>John Doe</h2>
-        <p class="title">co-developer</p>
+        <p class="title">Co-developer</p>
         
       </div>
     </div>
@@ -119,19 +119,6 @@ const AboutUs = () => {
     </div>
   </div>
 
-  
-        <div class="column">
-    <div class="card">
-    <img src={img} alt="" />
-      <div class="container">
-        
-        <h2>Mr Winner</h2>
-        <p class="title">Co-developer</p>
-        
-        
-      </div>
-    </div>
-  </div>
         
       </section>
 

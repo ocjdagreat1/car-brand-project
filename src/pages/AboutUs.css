@@ -8,11 +8,17 @@
   box-shadow: 0 4px 8px  rgba(175, 119, 119, 0.2);
   border-radius: 5px;
   margin: 8px;
+  background-color: #8f8c8c;
+  height: 295px;
 }
 .card img{
-  width: 100px;
-  height: 50%;
+  width: 70px;
+  height: 45%;
   border-radius: 3px;
+  align-items: center;
+  margin-top: 10px;
+  margin-left: 10px;
+  
 }
 .about-section {
   padding: 50px;
