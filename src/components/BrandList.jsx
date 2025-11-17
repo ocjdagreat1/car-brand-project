@@ -130,7 +130,7 @@ const BrandList = () => {
         Car Brands
       </Typography>
 
-      {/* 🔍 Search and Country Filter */}
+      {/*Search and Country Filter */}
       <Box
         sx={{
           display: "flex",
@@ -190,7 +190,7 @@ const BrandList = () => {
         />
       </Box>
 
-      {/* 🧩 Brand Cards - Fixed layout */}
+      {/* Brand Cards - Fixed layout */}
       <Grid container spacing={3}>
         {filteredBrands.map((brand, index) => (
           <Grid item xs={12} sm={6} md={4} key={index}>
@@ -256,7 +256,7 @@ const BrandList = () => {
                   <Box
                     sx={{
                       display: "flex",
-                      justifyContent: "space-around", // This spreads items to both ends
+                      justifyContent: "space-around",
                       alignItems: "center",
                       width: "100%",
                       px: 1,

@@ -1,0 +1,244 @@
+.column {
+  float: left;
+  width: 10.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+.card {
+  box-shadow: 0 4px 8px  rgba(175, 119, 119, 0.2);
+  border-radius: 5px;
+  margin: 8px;
+}
+.card img{
+  width: 100px;
+  height: 50%;
+  border-radius: 3px;
+}
+.about-section {
+  padding: 50px;
+  text-align: center;
+}
+
+.container {
+  padding: 0 16px;
+}
+
+
+.about-page {
+  background-color: rgb(219, 215, 215);
+  color: rgb(12, 12, 11);
+  margin: 50px;
+  font-size: large;
+  font-display: block;
+
+}
+.title-1 {
+  font-size: xx-large;
+  font-weight: 50px;
+}
+
+.cert-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+.cert-section div {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+}
+
+.cert-section h2 {
+    margin: 0;
+    color: #333;
+    font-size: 2rem;
+}
+
+.cert-section p {
+    margin: 0;
+    color: #666;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.statistics.section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #856b6b;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    
+}
+
+.statistics-section div {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+}
+
+.statistics-section h2 {
+    margin: 0;
+    color: #333;
+    font-size: 2rem;
+}
+
+.statistics-section p {
+    margin: 0;
+    color: #666;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+
+.pricing-container {
+    display: flex;
+    flex-direction: row; /* Change to 'column' if you prefer vertical stacking */
+    gap: 2rem;
+    justify-content: space-around;
+    align-items: stretch;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+.pricing-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+}
+
+.pricing-item h3 {
+    margin: 0;
+    color: #333;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.pricing-item p {
+    margin: 0;
+    color: #666;
+    line-height: 1.6;
+    font-size: 1.5rem;
+    text-align: left;
+}
+
+
+.pricing-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+.pricing-section div {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+}
+
+.pricing-section h2 {
+    margin: 0;
+    color: #333;
+    font-size: 2rem;
+}
+
+.pricing-section p {
+    margin: 0;
+    color: #666;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.about-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #faf6f6;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+.about-section div {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+}
+
+.about-section h2 {
+    margin: 0;
+    color: #333;
+    font-size: 2rem;
+}
+
+.about-section p {
+    margin: 0;
+    color: #666;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.team-picture {
+  margin: 20px;
+  min-width: 100px;
+  justify-content: center;
+  overflow: hidden;
+  padding-right: 90px;
+  
+  
+}
+
+
+.stats-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.card1 {
+  background: rgb(173, 173, 173);
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  min-width: 250px;
+  text-align: center;
+}
