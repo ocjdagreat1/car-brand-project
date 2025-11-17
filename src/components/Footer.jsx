@@ -1,17 +1,29 @@
-import React from "react";
-import { Box, Typography, Grid, Button, Link as MuiLink } from "@mui/material";
-import { Link } from "react-router-dom"; // Import from React Router
+import React, { useState } from "react";
+import {
+  Box,
+  Typography,
+  Grid,
+  Button,
+  Link as MuiLink,
+  Modal
+} from "@mui/material";
+import { Link } from "react-router-dom";
+import FeedbackForm from "./FeedBack"; 
 import CarLogo from "../assets/images/logo.svg";
 import AppStore from "../assets/images/apple.png";
 import GooglePlay from "../assets/images/google.png";
 
 const Footer = () => {
+  const [openFeedback, setOpenFeedback] = useState(false);
+  const handleOpenFeedback = () => setOpenFeedback(true);
+  const handleCloseFeedback = () => setOpenFeedback(false);
+
   const links = [
     { label: "About us", path: "/about" },
     { label: "About cookies", path: "/cookies" },
     { label: "Digital Service Book", path: "/" },
-    { label: "Inpection Date", path: "/" },
-    { label: "Terms of use", path: "/terms" },
+    { label: "Inspection Date", path: "/" },
+    { label: "Terms of use", path: "/terms" }
   ];
 
   return (
@@ -19,36 +31,21 @@ const Footer = () => {
       sx={{
         backgroundColor: "#1c1c1c",
         color: "white",
-        py: 3,
+        py: 4,
         px: 2,
-        textAlign: "center",
+        width: "100vw",
+        position: "relative",
+        left: 0,
+        right: 0,
+        overflowX: "hidden",
+        textAlign: "center"
       }}
     >
-      {/* App store badges */}
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          gap: 2,
-          flexWrap: "wrap",
-          mb: 2,
-        }}
-      >
-        <Box
-          component="img"
-          src={AppStore}
-          alt="App Store"
-          sx={{ height: 35, cursor: "pointer" }}
-        />
-        <Box
-          component="img"
-          src={GooglePlay}
-          alt="Google Play"
-          sx={{ height: 35, cursor: "pointer" }}
-        />
+      <Box sx={{ display: "flex", justifyContent: "center", gap: 2, flexWrap: "wrap", mb: 2 }}>
+        <Box component="img" src={AppStore} alt="App Store" sx={{ height: 35, cursor: "pointer" }} />
+        <Box component="img" src={GooglePlay} alt="Google Play" sx={{ height: 35, cursor: "pointer" }} />
       </Box>
 
-      {/* Logo */}
       <Box
         component="img"
         src={CarLogo}
@@ -59,14 +56,12 @@ const Footer = () => {
           transition: "filter 0.3s ease",
           "&:hover": {
             filter:
-              'brightness(0) saturate(100%) invert(63%) sepia(98%) saturate(744%) hue-rotate(360deg) brightness(105%) contrast(101%)',
-            cursor: "pointer",
-          },
+              "brightness(0) saturate(100%) invert(63%) sepia(98%) saturate(744%) hue-rotate(360deg) brightness(105%) contrast(101%)",
+            cursor: "pointer"
+          }
         }}
       />
 
-     
-     
       <Typography
         variant="h6"
         sx={{
@@ -76,37 +71,22 @@ const Footer = () => {
           letterSpacing: 1,
           color: "#ffa500",
           textTransform: "uppercase",
-          textDecoration:"underline"
+          textDecoration: "underline"
         }}
       >
-        Quick-Navigation
+        Quick Navigation
       </Typography>
 
-      {/* Links */}
       <Grid
         container
         justifyContent="center"
         spacing={6}
-        sx={{
-          mt: 1,
-          mb: 3,
-          maxWidth: "850px",
-          mx: "auto",
-        }}
+        sx={{ mt: 1, mb: 3, maxWidth: "850px", mx: "auto" }}
       >
         {links.map(({ label, path }) => (
-          <Grid
-            item
-            key={label}
-            xs={12}
-            sm="auto"
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-            }}
-          >
+          <Grid item key={label} xs={12} sm="auto" sx={{ display: "flex", justifyContent: "center" }}>
             <MuiLink
-              component={Link} // React Router link
+              component={Link}
               to={path}
               underline="hover"
               sx={{
@@ -114,7 +94,7 @@ const Footer = () => {
                 fontSize: 16,
                 fontWeight: 500,
                 transition: "color 0.3s",
-                "&:hover": { color: "#ffa500" },
+                "&:hover": { color: "#ffa500" }
               }}
             >
               {label}
@@ -123,10 +103,10 @@ const Footer = () => {
         ))}
       </Grid>
 
-      {/* Feedback button */}
       <Button
         variant="outlined"
         size="small"
+        onClick={handleOpenFeedback}
         sx={{
           borderColor: "#fff",
           color: "#fff",
@@ -134,22 +114,31 @@ const Footer = () => {
           mt: 1,
           "&:hover": {
             borderColor: "#ffa500",
-            color: "#ffa500",
-          },
+            color: "#ffa500"
+          }
         }}
       >
         Give us feedback
       </Button>
 
-      {/* Footer copyright */}
+      <Modal
+        open={openFeedback}
+        onClose={handleCloseFeedback}
+        aria-labelledby="feedback-modal-title"
+        aria-describedby="feedback-modal-description"
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          p: 2
+        }}
+      >
+        <FeedbackForm onClose={handleCloseFeedback} />
+      </Modal>
+
       <Typography
         variant="caption"
-        sx={{
-          display: "block",
-          color: "#fff",
-          mt: 2,
-          fontSize: "0.8rem",
-        }}
+        sx={{ display: "block", color: "#fff", mt: 2, fontSize: "0.8rem" }}
       >
         © 2025 Car.info. Publishers: Opara Chibuike Justine (Lead Developer) and team members.
       </Typography>
