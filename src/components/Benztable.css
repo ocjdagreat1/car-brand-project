@@ -1,0 +1,20 @@
+.table{
+    width: 90%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.head{
+    background-color: goldenrod;
+    columns: white;
+}
+
+input{
+    width: 95%;
+    height: 4.5vh;
+    padding: 10px;
+    border-top-right-radius: 20px;
+    font-size: 20px;
+    border: 1px solid;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.132);
+}
