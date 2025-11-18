@@ -81,21 +81,27 @@ export default function PrimarySearchAppBar() {
 
   const [user, setUser] = React.useState(null);
 
-  // ✅ Only load user when on /dashboard
-  React.useEffect(() => {
-    if (location.pathname.startsWith('/dashboard')) {
-      try {
-        const storedUser = localStorage.getItem('user');
-        if (storedUser && storedUser !== 'undefined' && storedUser !== 'null') {
-          setUser(JSON.parse(storedUser));
-        }
-      } catch (err) {
-        console.error('Failed to parse user from localStorage:', err);
+React.useEffect(() => {
+  const { pathname } = location;
+
+  // list of paths where you DON'T want to load user
+  const excludedPaths = ['/', '/login', '/register'];
+
+  const isExcluded = excludedPaths.some(path => pathname === path);
+
+  if (!isExcluded) {
+    try {
+      const storedUser = localStorage.getItem('user');
+      if (storedUser && storedUser !== 'undefined' && storedUser !== 'null') {
+        setUser(JSON.parse(storedUser));
       }
-    } else {
-      setUser(null);
+    } catch (err) {
+      console.error('Failed to parse user from localStorage:', err);
     }
-  }, [location.pathname]);
+  } else {
+    setUser(null);
+  }
+}, [location.pathname]);
 
   // Menu handlers
   const handleLangMenuOpen = (event) => setAnchorEl(event.currentTarget);

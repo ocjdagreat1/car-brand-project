@@ -25,7 +25,7 @@ function App() {
         <Route path='/' element ={<HomePage/>}/>
         <Route path='/dashboard' element ={<Dashboard/>}/>
         <Route path='/brand/volvo' element={<Volvo/>}/>
-        <Route path='/brand/Mercedes' element={<Mercedes/>}/>
+        <Route path='/brand/mercedes-benz' element={<Mercedes/>}/>
         <Route path='/Benzmap' element={<Benzmap/>}/>
         <Route path='/Benzcard' element={<Benzcard/>}/>
         <Route path='/Benztable' element={<Benztable/>}/>
@@ -43,6 +43,7 @@ function App() {
         {/* Other branch routes */}
         
         <Route path='/AboutUs' element={<AboutUs />} />
+        
       </Routes>
 
       <Footer />
