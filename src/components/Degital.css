@@ -1,0 +1,103 @@
+.degital-body{
+    h1{
+       padding-bottom: 20px;
+       font-size: 40px;
+    }
+    p{
+        padding-bottom: 20px;
+    }
+
+    hr{
+        padding: 2px 0px;
+    }
+    height: 70vh;
+}
+
+.digital-box{
+    display: flex;
+    justify-content: space-around;
+     flex-wrap: wrap;
+    align-items: center;
+    background-color: rgb(242, 241, 241);
+    height: 25vh;
+    
+    
+
+    input{
+        width: 70%;
+        height: 3vh;
+    }
+}
+
+.example{
+    box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.077);
+    padding: 10px 20px;
+    width: 40%;
+
+    h4{
+        text-align: center;
+        padding-bottom: 3px;
+    }
+    p{
+        border-bottom: 1px solid gray;
+        padding-bottom: 5px;
+    }
+}
+
+.searchbtn{
+    display: flex;
+    justify-content: space-around;
+   
+
+    button{
+        background-color: rgba(3, 3, 247, 0.645);
+        border: none;
+        color: white;
+        padding: 13px 15px;
+        font-size: 16px;
+        
+    }
+}
+
+.bottombox{
+    border: 1px solid rgb(245, 140, 102);
+    background-color: rgba(245, 140, 102, 0.292);
+    padding: 15px 30px;
+    border-radius: 7px;
+    text-align: center;
+}
+.lp{
+    font-size: 18px;
+    color: rgba(3, 3, 247, 0.645) ;
+
+}
+
+@media (max-width: 412px){
+  
+
+    .degital-body{
+        height: 70vh;
+        h1{
+            font-size: 27px;
+            font-weight: 300;
+        }
+
+        p{
+            font-size: 14px;
+        }
+    }
+    .digital-box{
+        height: 32vh;
+        input{
+            width: 95%;
+        }
+
+        button{
+            padding-bottom:17px ;
+        }
+    }
+
+    .example{
+        width: 80%;
+    }
+}

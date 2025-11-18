@@ -17,6 +17,9 @@ import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
 import AboutUs from './pages/AboutUs'
 
+import Cookies from './components/Cookies'
+import Digital from './components/Digital'
+
 function App() {
 
   return (
@@ -36,6 +39,9 @@ function App() {
         <Route path='/login' element={<LoginPage />} />
         <Route path='/register' element={<RegisterPage />} />
         <Route path='/dashboard' element={<Dashboard />} />
+
+        <Route path='/cookies' element={<Cookies />}/>
+        <Route path='/digital' element={<Digital />}/>
 
         {/* Your brand route */}
         <Route path='/brand/volvo' element={<Volvo />} />
