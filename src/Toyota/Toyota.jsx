@@ -7,7 +7,11 @@ import Description from './Description.jsx'
 
 const Toyota = () => {
   return (
+<<<<<<< HEAD
     <Box sx={{minHeight:"200vh"}}>
+=======
+    <Box sx={{backgroundColor:"#ffff",minHeight:"200vh"}}>
+>>>>>>> 288447b9080e6bc3d6427f59452a23fea631492b
         <Appbar/>
         <ToyotaHero/>
         <ImageStack/>

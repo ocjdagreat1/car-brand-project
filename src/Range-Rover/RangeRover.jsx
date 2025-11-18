@@ -7,7 +7,7 @@ import Description from './Description.jsx'
 
 const RangeRover = () => {
   return (
-    <Box sx={{backgroundColor:"#121212",minHeight:"200vh"}}>
+    <Box sx={{backgroundColor:"#ffff",minHeight:"200vh"}}>
         <Appbar/>
         <RangeRoverHero/>
         <ImageStack/>

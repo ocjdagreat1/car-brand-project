@@ -44,13 +44,13 @@ const MercedesIntro = () => {
         <Button sx={{padding:'7px 40px', backgroundColor:'gray', color:'white' }}>Statistic</Button>
       </Box>
       <Box>
-        <Button sx={{padding:'7px 40px', backgroundColor:'gray', color:'white' }}><Link to='/Benzmap'>Map</Link></Button>
+        <Button sx={{padding:'7px 40px', backgroundColor:'gray', color:'white' }}><Link to='/Benzmap'style={{textDecoration:"none",color:"white"}}>Map</Link></Button>
       </Box>
       <Box>
-        <Button sx={{padding:'7px 40px', backgroundColor:'gray', color:'white' }}><Link to='/Benztable'>Toplist</Link></Button>
+        <Button sx={{padding:'7px 40px', backgroundColor:'gray', color:'white' }}><Link to='/Benztable' style={{textDecoration:"none",color:"white"}}>Toplist</Link></Button>
       </Box>
       <Box>
-        <Button sx={{padding:'7px 40px', backgroundColor:'gray', color:'white' }}><Link to='/Benzcard'>Images</Link></Button>
+        <Button sx={{padding:'7px 40px', backgroundColor:'gray', color:'white' }}><Link to='/Benzcard'style={{textDecoration:"none",color:"white"}}>Images</Link></Button>
       </Box>
 
     </Container>

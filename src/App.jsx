@@ -47,19 +47,19 @@ function App() {
         <Route path='/inspection' element ={<Inspection/>}/>
         <Route path='/brand/toyota' element ={<Toyota/>}/>
         <Route path='/brand/land-rover' element ={<RangeRover/>}/>
-        
+
         <Route path='/brand/volvo' element={<Volvo />} />
 
       
         
         <Route path='/AboutUs' element={<AboutUs />} />
-
       </Routes>
       <Footer/>
 
         
-        
-    
+      
+
+      
     </>
   )
 }

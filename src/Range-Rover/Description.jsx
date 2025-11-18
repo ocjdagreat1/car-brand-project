@@ -9,7 +9,7 @@ const Description = () => {
          className='short-underline'
           variant="h5"
           sx={{
-            color: "#ccc",
+          
             fontWeight: "bold",
             mb: 2,
           }}
@@ -17,10 +17,10 @@ const Description = () => {
           Land Rover In Sweden
         </Typography>
 
-        <Typography sx={{ lineHeight: 1.8, color: "#ccc", maxWidth: "100%" }}>
+        <Typography sx={{ lineHeight: 1.8,  maxWidth: "100%" }}>
           There are 20,660 registered vehicles from Land Rover in Sweden, of which 2,445 are for sale with current classifieds right now.
         </Typography>
-        <Typography sx={{ mt: 3, lineHeight: 1.8, color: "#ccc", maxWidth: "100%" }}>
+        <Typography sx={{ mt: 3, lineHeight: 1.8,maxWidth: "100%" }}>
             <ul>
                 <li>Land Rover for sale in Sweden</li>
             </ul>

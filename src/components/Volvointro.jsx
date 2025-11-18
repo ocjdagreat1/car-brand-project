@@ -43,13 +43,13 @@ const VolvoIntro = () => {
         <Button sx={{padding:'7px 40px', backgroundColor:'gray', color:'white' }}>Statistic</Button>
       </Box>
       <Box>
-        <Button sx={{padding:'7px 40px', backgroundColor:'gray', color:'white' }}><Link to='/Volvomap'>Map</Link></Button>
+        <Button sx={{padding:'7px 40px', backgroundColor:'gray', color:'white' }}><Link to='/Volvomap' style={{textDecoration:"none",color:"white"}}>Map</Link></Button>
       </Box>
       <Box>
-        <Button sx={{padding:'7px 40px', backgroundColor:'gray', color:'white' }}><Link to='/Volvotable'>Toplist</Link></Button>
+        <Button sx={{padding:'7px 40px', backgroundColor:'gray', color:'white' }}><Link to='/Volvotable' style={{textDecoration:"none",color:"white"}}>Toplist</Link></Button>
       </Box>
       <Box>
-        <Button sx={{padding:'7px 40px', backgroundColor:'gray', color:'white' }}><Link to='/Volvocard'>Images</Link></Button>
+        <Button sx={{padding:'7px 40px', backgroundColor:'gray', color:'white' }}><Link to='/Volvocard' style={{textDecoration:"none",color:"white"}}>Images</Link></Button>
       </Box>
 
     </Container>
