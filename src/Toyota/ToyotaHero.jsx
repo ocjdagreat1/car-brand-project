@@ -21,7 +21,7 @@ const ToyotaDashboard = () => {
           variant="h4"
           sx={{
             fontWeight: "bold",
-            color: "rgba(255, 255, 255, 1)",
+            
             mb: 4,
           }}
         >
@@ -36,8 +36,8 @@ const ToyotaDashboard = () => {
            <Box
            key={index}
           sx={{
-              bgcolor: "#121212",
-              color: "#ccc",
+              bgcolor: "#ffff",
+            
               mb: 3,
               p: 0,
               pl:0,
@@ -56,7 +56,7 @@ const ToyotaDashboard = () => {
        <Box
         sx={{
           width:'50%',
-          bgcolor: "#121212",
+          bgcolor: "#ffff",
           p: 3,
           display: "grid",
         }}
@@ -68,7 +68,7 @@ const ToyotaDashboard = () => {
           sx={{
             width: "18vh",
             height: "14vh",
-            boxShadow: 4,
+            
             justifySelf:"flex-end",
             paddingTop:12,
           }}
@@ -77,8 +77,8 @@ const ToyotaDashboard = () => {
          
           <Box
           sx={{
-              bgcolor: "#121212",
-              color: "#ccc",
+              bgcolor: "#ffff",
+              
               mb: 3,
               p: 0,
               display: "grid",
@@ -93,8 +93,8 @@ const ToyotaDashboard = () => {
           </Box>
           <Box
           sx={{
-              bgcolor: "#121212",
-              color: "#ccc",
+              bgcolor: "#ffff",
+            
               mb: 3,
               p: 0,
               display: "grid",

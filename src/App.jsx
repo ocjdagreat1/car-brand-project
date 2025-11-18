@@ -12,7 +12,7 @@ import Benztable from './components/Benztable'
 import Volvocard from './components/Volvocard'
 import Volvomap from './components/Volvomap'
 import Volvotable from './components/Volvotable'
-import Dashboard  from './pages/Dashboard'
+
 import Toyota from './Toyota/Toyota.jsx'
 import RangeRover from './Range-Rover/RangeRover.jsx'
 import { createTheme } from '@mui/material'
@@ -45,22 +45,22 @@ function App() {
         <Route path='/Volvotable' element={<Volvotable/>}/>
         <Route path='/login' element={<LoginPage />} />
         <Route path='/register' element={<RegisterPage />} />
-        <Route path='/inspection-date' element ={<Inspection/>}/>
+        <Route path='/inspection' element ={<Inspection/>}/>
         <Route path='/brand/toyota' element ={<Toyota/>}/>
         <Route path='/brand/land-rover' element ={<RangeRover/>}/>
+        <Route path='/brand/volvo' element={<Volvo />} />
+        <Route path='/AboutUs' element={<AboutUs />} />
       </Routes>
       <Footer/>
 
-        {/* Your brand route */}
-        <Route path='/brand/volvo' element={<Volvo />} />
-
-        {/* Other branch routes */}
         
-        <Route path='/AboutUs' element={<AboutUs />} />
         
-      </Routes>
 
-      <Footer />
+        
+        
+        
+        
+      
     </>
   )
 }
