@@ -1,0 +1,14 @@
+.short-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.short-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 60px;       
+  height: 5px;       
+  background: #f39c12; 
+}

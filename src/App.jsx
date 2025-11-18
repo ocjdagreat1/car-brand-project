@@ -12,10 +12,21 @@ import Benztable from './components/Benztable'
 import Volvocard from './components/Volvocard'
 import Volvomap from './components/Volvomap'
 import Volvotable from './components/Volvotable'
+import Dashboard  from './pages/Dashboard'
+import Toyota from './Toyota/Toyota.jsx'
+import RangeRover from './Range-Rover/RangeRover.jsx'
+import { createTheme } from '@mui/material'
+import Inspection from './pages/Inspection/Inspection.jsx'
 
 import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
 import AboutUs from './pages/AboutUs'
+
+const rootTheme = createTheme({
+  typography: {
+    fontFamily: "Inter, Arial, sans-serif",
+  },
+});
 
 function App() {
 
@@ -32,10 +43,13 @@ function App() {
         <Route path='/Volvomap' element={<Volvomap/>}/>
         <Route path='/Volvocard' element={<Volvocard/>}/>
         <Route path='/Volvotable' element={<Volvotable/>}/>
-        <Route path='/' element={<HomePage />} />
         <Route path='/login' element={<LoginPage />} />
         <Route path='/register' element={<RegisterPage />} />
-        <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/inspection-date' element ={<Inspection/>}/>
+        <Route path='/brand/toyota' element ={<Toyota/>}/>
+        <Route path='/brand/land-rover' element ={<RangeRover/>}/>
+      </Routes>
+      <Footer/>
 
         {/* Your brand route */}
         <Route path='/brand/volvo' element={<Volvo />} />
