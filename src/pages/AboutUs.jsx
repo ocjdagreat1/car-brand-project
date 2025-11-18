@@ -6,9 +6,12 @@ import img1 from '../assets/franz.jpg'
 import img2 from '../assets/jonatan.jpg'
 import img3 from '../assets/jonas.jpg'
 import img4 from '../assets/team_picture.jpg'
+import Appbar from "../components/Appbar"
 const AboutUs = () => {
 
   return (
+    <>
+    <Appbar/>
     <div className="about-page">
       {/* Header Section: About Car.info */}
       <section className="about-section">
@@ -166,6 +169,7 @@ const AboutUs = () => {
       </section>
       <div className="team-picture"><img src={img4} alt="" /></div>
     </div>
+    </>
     
   );
 };

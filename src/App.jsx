@@ -12,6 +12,10 @@ import Benztable from './components/Benztable'
 import Volvocard from './components/Volvocard'
 import Volvomap from './components/Volvomap'
 import Volvotable from './components/Volvotable'
+import Toyota from './Toyota/Toyota.jsx'
+import RangeRover from './Range-Rover/RangeRover.jsx'
+import { createTheme } from '@mui/material'
+import Inspection from './pages/Inspection/Inspection.jsx'
 
 import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
@@ -28,17 +32,18 @@ function App() {
         <Route path='/' element ={<HomePage/>}/>
         <Route path='/dashboard' element ={<Dashboard/>}/>
         <Route path='/brand/volvo' element={<Volvo/>}/>
-        <Route path='/brand/Mercedes' element={<Mercedes/>}/>
+        <Route path='/brand/mercedes-benz' element={<Mercedes/>}/>
         <Route path='/Benzmap' element={<Benzmap/>}/>
         <Route path='/Benzcard' element={<Benzcard/>}/>
         <Route path='/Benztable' element={<Benztable/>}/>
         <Route path='/Volvomap' element={<Volvomap/>}/>
         <Route path='/Volvocard' element={<Volvocard/>}/>
         <Route path='/Volvotable' element={<Volvotable/>}/>
-        <Route path='/' element={<HomePage />} />
         <Route path='/login' element={<LoginPage />} />
         <Route path='/register' element={<RegisterPage />} />
-        <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/inspection' element ={<Inspection/>}/>
+        <Route path='/brand/toyota' element ={<Toyota/>}/>
+        <Route path='/brand/land-rover' element ={<RangeRover/>}/>
 
         <Route path='/cookies' element={<Cookies />}/>
         <Route path='/digital' element={<Digital />}/>
@@ -46,12 +51,16 @@ function App() {
         {/* Your brand route */}
         <Route path='/brand/volvo' element={<Volvo />} />
 
-        {/* Other branch routes */}
+      
         
         <Route path='/AboutUs' element={<AboutUs />} />
       </Routes>
+      <Footer/>
 
-      <Footer />
+        
+      
+
+      
     </>
   )
 }

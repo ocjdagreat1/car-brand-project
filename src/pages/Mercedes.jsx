@@ -7,13 +7,14 @@ import Aboutbenz from '../components/Aboutbenz'
 import { Container } from '@mui/material'
 import Appbar from '../components/Appbar'
 import Benzdealerprofile from '../components/Benzdealerprofie'
+import {Link} from "react-router-dom"
 
 const Mercedes = () => {
   return (
     <>
     <Appbar/>
     <Container maxWidth='2000px' sx={{paddingTop:'70px', width:'90%' }}>
-     <a href="#">Home</a>
+     <Link to  ="/" style={{textDecoration:"none",color:"Black"}}>Home</Link>
     <MercedesIntro/>
     <Benzcard />
     <Benztable/>
