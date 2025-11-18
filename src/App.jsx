@@ -21,11 +21,8 @@ import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
 import AboutUs from './pages/AboutUs'
 
-const rootTheme = createTheme({
-  typography: {
-    fontFamily: "Inter, Arial, sans-serif",
-  },
-});
+import Cookies from './components/Cookies'
+import Digital from './components/Digital'
 
 function App() {
 
@@ -48,6 +45,10 @@ function App() {
         <Route path='/brand/toyota' element ={<Toyota/>}/>
         <Route path='/brand/land-rover' element ={<RangeRover/>}/>
 
+        <Route path='/cookies' element={<Cookies />}/>
+        <Route path='/digital' element={<Digital />}/>
+
+        {/* Your brand route */}
         <Route path='/brand/volvo' element={<Volvo />} />
 
       
