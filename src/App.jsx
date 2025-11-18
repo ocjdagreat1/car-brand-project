@@ -45,7 +45,7 @@ function App() {
         <Route path='/Volvotable' element={<Volvotable/>}/>
         <Route path='/login' element={<LoginPage />} />
         <Route path='/register' element={<RegisterPage />} />
-        <Route path='/inspection-date' element ={<Inspection/>}/>
+        <Route path='/inspection' element ={<Inspection/>}/>
         <Route path='/brand/toyota' element ={<Toyota/>}/>
         <Route path='/brand/land-rover' element ={<RangeRover/>}/>
       </Routes>
