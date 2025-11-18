@@ -33,11 +33,8 @@ const Footer = () => {
       sx={{
         backgroundColor: "#1c1c1c",
         color: "white",
-<<<<<<< HEAD
         py: 4,
-=======
         py: 2,
->>>>>>> 8def1b5 (Save work before rebase)
         px: 2,
         width: "100vw",
         position: "relative",
