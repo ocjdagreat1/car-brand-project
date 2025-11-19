@@ -36,7 +36,6 @@ const Search = styled("div")(({ theme }) => ({
   borderRadius: theme.shape.borderRadius,
   backgroundColor: theme.palette.mode === "light" ? "#fff" : "#0b1220",
   border: `1px solid ${theme.palette.mode === "light" ? "#e5e7eb" : "rgba(255,255,255,0.06)"}`,
-  marginRight: theme.spacing(2),
   width: "100%",
   maxWidth: 500,
 }));
@@ -96,17 +95,21 @@ export default function PrimarySearchAppBar() {
     }
   }, [location.pathname]);
 
-  // menus
+  // Account menu
   const handleAccountOpen = (e) => setAccountAnchorEl(e.currentTarget);
   const handleAccountClose = () => setAccountAnchorEl(null);
 
+  // Language menu
   const handleLangOpen = (e) => setLangAnchorEl(e.currentTarget);
   const handleLangClose = () => setLangAnchorEl(null);
-
   const handleLanguageChange = (lang) => {
     setSelectedLang(lang);
     handleLangClose();
   };
+
+  // Mobile menu
+  const handleMobileMenuOpen = (e) => setMobileMoreAnchorEl(e.currentTarget);
+  const handleMobileMenuClose = () => setMobileMoreAnchorEl(null);
 
   const handleLogout = () => {
     localStorage.removeItem("user");
@@ -114,71 +117,55 @@ export default function PrimarySearchAppBar() {
     window.location.href = "/";
   };
 
+  // Mobile menu items
+  const mobileMenuId = "primary-search-mobile-menu";
+  const renderMobileMenu = (
+    <Menu
+      anchorEl={mobileMoreAnchorEl}
+      open={Boolean(mobileMoreAnchorEl)}
+      onClose={handleMobileMenuClose}
+    >
+      <MenuItem onClick={toggleTheme}>
+        {mode === "dark" ? <Brightness7Icon sx={{ mr: 1 }} /> : <Brightness4Icon sx={{ mr: 1 }} />}
+        Toggle Theme
+      </MenuItem>
+
+      {!user ? (
+        <>
+          <MenuItem component={Link} to="/login" onClick={handleMobileMenuClose}>
+            <LoginIcon sx={{ mr: 1 }} /> Login
+          </MenuItem>
+          <MenuItem component={Link} to="/register" onClick={handleMobileMenuClose}>
+            <PersonAddAltIcon sx={{ mr: 1 }} /> Register
+          </MenuItem>
+        </>
+      ) : (
+        <MenuItem
+          onClick={() => {
+            handleLogout();
+            handleMobileMenuClose();
+          }}
+        >
+          <LoginIcon sx={{ mr: 1, color: "red" }} /> Logout
+        </MenuItem>
+      )}
+
+      <MenuItem onClick={handleLangOpen}>
+        <Box component="img" src={selectedLang.flag} alt="flag" sx={{ width: 24, height: 16, mr: 1 }} />
+        {selectedLang.name}
+      </MenuItem>
+    </Menu>
+  );
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="fixed" color="primary" elevation={1}>
-        <Toolbar sx={{ minHeight: 64 }}>
-          {/* Menu Icon */}
-          <IconButton size="large" edge="start" color="inherit" sx={{ mr: 1 }}>
-            <MenuIcon />
-          </IconButton>
-
-          {/* Toggle (styled to match screenshot: pill with sliding circle) */}
-          <Box
-            onClick={toggleTheme}
-            sx={{
-              width: 56,
-              height: 30,
-              borderRadius: 20,
-              backgroundColor: mode === "dark" ? "#fff" : "#2f3542",
-              display: "flex",
-              alignItems: "center",
-              padding: "4px",
-              cursor: "pointer",
-              position: "relative",
-              transition: "background-color 300ms ease",
-              mr: 2,
-              border: mode === "dark" ? "1px solid rgba(0,0,0,0.08)" : "1px solid rgba(255,255,255,0.06)",
-            }}
-            role="button"
-            aria-label="Toggle theme"
-          >
-            <Brightness4Icon
-              sx={{
-                position: "absolute",
-                left: 8,
-                fontSize: 16,
-                color: mode === "dark" ? "#000" : "#fff",
-                transition: "color 300ms ease",
-              }}
-            />
-            <Brightness7Icon
-              sx={{
-                position: "absolute",
-                right: 8,
-                fontSize: 16,
-                color: mode === "dark" ? "#000" : "#FFD54F",
-                transition: "color 300ms ease",
-              }}
-            />
-
-            {/* Sliding circle */}
-            <Box
-              sx={{
-                width: 20,
-                height: 20,
-                borderRadius: "50%",
-                backgroundColor: mode === "dark" ? "#000" : "#fff",
-                position: "absolute",
-                left: mode === "dark" ? 4 : 32,
-                transition: "left 300ms cubic-bezier(.2,.8,.2,1), background-color 300ms ease",
-                boxShadow: "0 1px 3px rgba(0,0,0,0.2)",
-              }}
-            />
-          </Box>
-
-          {/* Logo */}
-          <Box sx={{ display: "flex", alignItems: "center", gap: 1, mr: 2 }}>
+        <Toolbar sx={{ minHeight: 64, display: "flex", justifyContent: "space-between" }}>
+          {/* Left: Menu + Logo */}
+          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+            <IconButton size="large" edge="start" color="inherit" sx={{ mr: 1 }}>
+              <MenuIcon />
+            </IconButton>
             <Box
               component="img"
               src={Logo}
@@ -187,137 +174,186 @@ export default function PrimarySearchAppBar() {
                 height: 30,
                 filter: mode === "dark" ? "brightness(100%)" : "none",
                 cursor: "pointer",
+                display: { xs: "none", sm: "block" }, // hide on very small screens
               }}
             />
           </Box>
 
-          {/* Search */}
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase placeholder="Search…" inputProps={{ "aria-label": "search" }} />
-          </Search>
-
-          <Box sx={{ flexGrow: 1 }} />
-
-          {/* Welcome text */}
-          <Typography variant="body2" sx={{ color: "text.primary", mr: 2 }}>
-            {user ? `Welcome, ${user.firstName || "User"}` : "Welcome, Guest"}
-          </Typography>
-
-          {/* Account */}
-          <Box sx={{ display: "flex", alignItems: "center", mr: 1 }}>
-            <IconButton
-              color="inherit"
-              onClick={handleAccountOpen}
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                border: "1px solid rgba(255,255,255,0.08)",
-                borderRadius: 1,
-                padding: "2px 8px",
-              }}
-            >
-              <Typography variant="body2" sx={{ mr: 0.5 }}>
-                Account
-              </Typography>
-              <ArrowDropDownIcon />
-            </IconButton>
+          {/* Center: Search */}
+          <Box sx={{ flexGrow: 1, mx: 2, display: { xs: "none", md: "flex" } }}>
+            <Search>
+              <SearchIconWrapper>
+                <SearchIcon />
+              </SearchIconWrapper>
+              <StyledInputBase placeholder="Search…" inputProps={{ "aria-label": "search" }} />
+            </Search>
           </Box>
 
-          <Menu
-            anchorEl={accountAnchorEl}
-            open={Boolean(accountAnchorEl)}
-            onClose={handleAccountClose}
-            PaperProps={{ sx: { mt: 1.5 } }}
-          >
-            {!user ? (
-              <>
-                <MenuItem component={Link} to="/login" onClick={handleAccountClose}>
-                  <LoginIcon sx={{ mr: 1 }} /> Login
-                </MenuItem>
-                <MenuItem component={Link} to="/register" onClick={handleAccountClose}>
-                  <PersonAddAltIcon sx={{ mr: 1 }} /> Register
-                </MenuItem>
-              </>
-            ) : (
-              <>
-                <MenuItem>
-                  <PersonAddAltIcon sx={{ mr: 1 }} /> {`Welcome, ${user.firstName || "User"}`}
-                </MenuItem>
+          {/* Right: Toggle, Account, Language */}
+          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+            {/* Dark Mode Toggle */}
+            <Box
+              onClick={toggleTheme}
+              sx={{
+                width: 56,
+                height: 30,
+                borderRadius: 20,
+                backgroundColor: mode === "dark" ? "#fff" : "#2f3542",
+                display: { xs: "none", sm: "flex" },
+                alignItems: "center",
+                padding: "4px",
+                cursor: "pointer",
+                position: "relative",
+                border: mode === "dark" ? "1px solid rgba(0,0,0,0.08)" : "1px solid rgba(255,255,255,0.06)",
+                transition: "background-color 300ms ease",
+              }}
+            >
+              <Brightness4Icon
+                sx={{
+                  position: "absolute",
+                  left: 8,
+                  fontSize: 16,
+                  color: mode === "dark" ? "#000" : "#fff",
+                  transition: "color 300ms ease",
+                }}
+              />
+              <Brightness7Icon
+                sx={{
+                  position: "absolute",
+                  right: 8,
+                  fontSize: 16,
+                  color: mode === "dark" ? "#000" : "#FFD54F",
+                  transition: "color 300ms ease",
+                }}
+              />
+              <Box
+                sx={{
+                  width: 20,
+                  height: 20,
+                  borderRadius: "50%",
+                  backgroundColor: mode === "dark" ? "#000" : "#fff",
+                  position: "absolute",
+                  left: mode === "dark" ? 4 : 32,
+                  transition: "left 300ms cubic-bezier(.2,.8,.2,1), background-color 300ms ease",
+                  boxShadow: "0 1px 3px rgba(0,0,0,0.2)",
+                }}
+              />
+            </Box>
 
-                {location.pathname.startsWith("/dashboard") && (
-                  <MenuItem
-                    onClick={() => {
-                      handleLogout();
-                      handleAccountClose();
-                    }}
-                  >
-                    <LoginIcon sx={{ mr: 1, color: "red" }} />
-                    Logout
-                  </MenuItem>
+            {/* Account */}
+            <Box sx={{ display: { xs: "none", sm: "flex" }, alignItems: "center" }}>
+              <IconButton
+                color="inherit"
+                onClick={handleAccountOpen}
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  border: "1px solid rgba(255,255,255,0.08)",
+                  borderRadius: 1,
+                  padding: "2px 8px",
+                }}
+              >
+                <Typography variant="body2" sx={{ mr: 0.5 }}>
+                  Account
+                </Typography>
+                <ArrowDropDownIcon />
+              </IconButton>
+              <Menu
+                anchorEl={accountAnchorEl}
+                open={Boolean(accountAnchorEl)}
+                onClose={handleAccountClose}
+                PaperProps={{ sx: { mt: 1.5 } }}
+              >
+                {!user ? (
+                  <>
+                    <MenuItem component={Link} to="/login" onClick={handleAccountClose}>
+                      <LoginIcon sx={{ mr: 1 }} /> Login
+                    </MenuItem>
+                    <MenuItem component={Link} to="/register" onClick={handleAccountClose}>
+                      <PersonAddAltIcon sx={{ mr: 1 }} /> Register
+                    </MenuItem>
+                  </>
+                ) : (
+                  <>
+                    <MenuItem>
+                      <PersonAddAltIcon sx={{ mr: 1 }} /> {`Welcome, ${user.firstName || "User"}`}
+                    </MenuItem>
+                    {location.pathname.startsWith("/dashboard") && (
+                      <MenuItem
+                        onClick={() => {
+                          handleLogout();
+                          handleAccountClose();
+                        }}
+                      >
+                        <LoginIcon sx={{ mr: 1, color: "red" }} />
+                        Logout
+                      </MenuItem>
+                    )}
+                  </>
                 )}
-              </>
-            )}
-          </Menu>
+              </Menu>
+            </Box>
 
-          {/* Language selector */}
-          <Box>
-            <IconButton
-              color="inherit"
-              onClick={handleLangOpen}
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                border: "1px solid rgba(255,255,255,0.08)",
-                borderRadius: 1,
-                padding: "2px 8px",
-                ml: 1,
-              }}
-            >
-              <Box component="img" src={selectedLang.flag} alt="flag" sx={{ width: 24, height: 16, mr: 1 }} />
-              <Typography variant="body2">{selectedLang.name}</Typography>
-              <ArrowDropDownIcon />
-            </IconButton>
+            {/* Language */}
+            <Box sx={{ display: { xs: "none", md: "flex" } }}>
+              <IconButton
+                color="inherit"
+                onClick={handleLangOpen}
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  border: "1px solid rgba(255,255,255,0.08)",
+                  borderRadius: 1,
+                  padding: "2px 8px",
+                  ml: 1,
+                }}
+              >
+                <Box component="img" src={selectedLang.flag} alt="flag" sx={{ width: 24, height: 16, mr: 1 }} />
+                <Typography variant="body2">{selectedLang.name}</Typography>
+                <ArrowDropDownIcon />
+              </IconButton>
 
-            <Menu anchorEl={langAnchorEl} open={Boolean(langAnchorEl)} onClose={handleLangClose}>
-              <Typography sx={{ px: 2, pt: 1, fontWeight: "bold", fontSize: 13 }}>Language</Typography>
-              <MenuItem onClick={() => handleLanguageChange({ name: "Svenska", flag: FlagSE })}>
-                <Box component="img" src={FlagSE} alt="Sweden" sx={{ width: 24, height: 16, mr: 1 }} />
-                Svenska
-              </MenuItem>
-              <MenuItem onClick={() => handleLanguageChange({ name: "English", flag: FlagUK })}>
-                <Box component="img" src={FlagUK} alt="English" sx={{ width: 24, height: 16, mr: 1 }} />
-                English
-              </MenuItem>
-              <MenuItem onClick={() => handleLanguageChange({ name: "German", flag: FlagGE })}>
-                <Box component="img" src={FlagGE} alt="German" sx={{ width: 24, height: 16, mr: 1 }} />
-                German
-              </MenuItem>
-              <MenuItem onClick={() => handleLanguageChange({ name: "France", flag: FlagFR })}>
-                <Box component="img" src={FlagFR} alt="France" sx={{ width: 24, height: 16, mr: 1 }} />
-                French
-              </MenuItem>
-              <MenuItem onClick={() => handleLanguageChange({ name: "Italia", flag: FlagIT })}>
-                <Box component="img" src={FlagIT} alt="Italy" sx={{ width: 24, height: 16, mr: 1 }} />
-                Italia
-              </MenuItem>
-              <MenuItem onClick={() => handleLanguageChange({ name: "Japan", flag: FlagJP })}>
-                <Box component="img" src={FlagJP} alt="Japan" sx={{ width: 24, height: 16, mr: 1 }} />
-                Japanese
-              </MenuItem>
-            </Menu>
-          </Box>
+              <Menu anchorEl={langAnchorEl} open={Boolean(langAnchorEl)} onClose={handleLangClose}>
+                <Typography sx={{ px: 2, pt: 1, fontWeight: "bold", fontSize: 13 }}>Language</Typography>
+                <MenuItem onClick={() => handleLanguageChange({ name: "Svenska", flag: FlagSE })}>
+                  <Box component="img" src={FlagSE} alt="Sweden" sx={{ width: 24, height: 16, mr: 1 }} />
+                  Svenska
+                </MenuItem>
+                <MenuItem onClick={() => handleLanguageChange({ name: "English", flag: FlagUK })}>
+                  <Box component="img" src={FlagUK} alt="English" sx={{ width: 24, height: 16, mr: 1 }} />
+                  English
+                </MenuItem>
+                <MenuItem onClick={() => handleLanguageChange({ name: "German", flag: FlagGE })}>
+                  <Box component="img" src={FlagGE} alt="German" sx={{ width: 24, height: 16, mr: 1 }} />
+                  German
+                </MenuItem>
+                <MenuItem onClick={() => handleLanguageChange({ name: "France", flag: FlagFR })}>
+                  <Box component="img" src={FlagFR} alt="France" sx={{ width: 24, height: 16, mr: 1 }} />
+                  French
+                </MenuItem>
+                <MenuItem onClick={() => handleLanguageChange({ name: "Italia", flag: FlagIT })}>
+                  <Box component="img" src={FlagIT} alt="Italy" sx={{ width: 24, height: 16, mr: 1 }} />
+                  Italia
+                </MenuItem>
+                <MenuItem onClick={() => handleLanguageChange({ name: "Japan", flag: FlagJP })}>
+                  <Box component="img" src={FlagJP} alt="Japan" sx={{ width: 24, height: 16, mr: 1 }} />
+                  Japanese
+                </MenuItem>
+              </Menu>
+            </Box>
 
-          {/* mobile more icon */}
-          <Box sx={{ display: { xs: "flex", md: "none" } }}>
-            <IconButton size="large" color="inherit">
-              <MoreIcon />
-            </IconButton>
+            {/* Mobile More Icon */}
+            <Box sx={{ display: { xs: "flex", sm: "none" } }}>
+              <IconButton size="large" color="inherit" onClick={handleMobileMenuOpen}>
+                <MoreIcon />
+              </IconButton>
+            </Box>
           </Box>
         </Toolbar>
       </AppBar>
+
+      {/* Render Mobile Menu */}
+      {renderMobileMenu}
     </Box>
   );
 }
