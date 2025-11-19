@@ -110,10 +110,8 @@ export default function PrimarySearchAppBar() {
   const mobileMenuId = "primary-search-mobile-menu";
   const renderMobileMenu = (
     <Menu anchorEl={mobileMoreAnchorEl} open={Boolean(mobileMoreAnchorEl)} onClose={handleMobileMenuClose}>
-      <MenuItem onClick={toggleTheme}>
-        {mode === "dark" ? <Brightness7Icon sx={{ mr: 1 }} /> : <Brightness4Icon sx={{ mr: 1 }} />}
-        Toggle Theme
-      </MenuItem>
+      
+      
       {!user ? (
         <>
           <MenuItem component={Link} to="/login" onClick={handleMobileMenuClose}>
