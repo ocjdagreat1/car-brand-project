@@ -270,7 +270,7 @@ const BrandList = () => {
                     <Typography
                       variant="body2"
                       sx={{
-                        bgcolor: "grey.200",
+                        bgcolor: "background.paper",
                         px: 2,
                         py: 0.5,
                         borderRadius: 2,
