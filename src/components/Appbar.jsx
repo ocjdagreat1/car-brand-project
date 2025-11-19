@@ -30,7 +30,6 @@ import FlagJP from "../assets/images/jp.svg";
 import FlagIT from "../assets/images/it.svg";
 import FlagFR from "../assets/images/fr.svg";
 
-/* Search styling adjusted to use theme-aware colors */
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
@@ -69,19 +68,13 @@ export default function PrimarySearchAppBar() {
   const [accountAnchorEl, setAccountAnchorEl] = React.useState(null);
   const [langAnchorEl, setLangAnchorEl] = React.useState(null);
 
-  const [selectedLang, setSelectedLang] = React.useState({
-    name: "English",
-    flag: FlagUK,
-  });
-
+  const [selectedLang, setSelectedLang] = React.useState({ name: "English", flag: FlagUK });
   const [user, setUser] = React.useState(null);
 
   React.useEffect(() => {
     const { pathname } = location;
     const excludedPaths = ["/", "/login", "/register"];
-    const isExcluded = excludedPaths.includes(pathname);
-
-    if (!isExcluded) {
+    if (!excludedPaths.includes(pathname)) {
       try {
         const storedUser = localStorage.getItem("user");
         if (storedUser && storedUser !== "undefined" && storedUser !== "null") {
@@ -95,11 +88,9 @@ export default function PrimarySearchAppBar() {
     }
   }, [location.pathname]);
 
-  // Account menu
   const handleAccountOpen = (e) => setAccountAnchorEl(e.currentTarget);
   const handleAccountClose = () => setAccountAnchorEl(null);
 
-  // Language menu
   const handleLangOpen = (e) => setLangAnchorEl(e.currentTarget);
   const handleLangClose = () => setLangAnchorEl(null);
   const handleLanguageChange = (lang) => {
@@ -107,7 +98,6 @@ export default function PrimarySearchAppBar() {
     handleLangClose();
   };
 
-  // Mobile menu
   const handleMobileMenuOpen = (e) => setMobileMoreAnchorEl(e.currentTarget);
   const handleMobileMenuClose = () => setMobileMoreAnchorEl(null);
 
@@ -117,19 +107,13 @@ export default function PrimarySearchAppBar() {
     window.location.href = "/";
   };
 
-  // Mobile menu items
   const mobileMenuId = "primary-search-mobile-menu";
   const renderMobileMenu = (
-    <Menu
-      anchorEl={mobileMoreAnchorEl}
-      open={Boolean(mobileMoreAnchorEl)}
-      onClose={handleMobileMenuClose}
-    >
+    <Menu anchorEl={mobileMoreAnchorEl} open={Boolean(mobileMoreAnchorEl)} onClose={handleMobileMenuClose}>
       <MenuItem onClick={toggleTheme}>
         {mode === "dark" ? <Brightness7Icon sx={{ mr: 1 }} /> : <Brightness4Icon sx={{ mr: 1 }} />}
         Toggle Theme
       </MenuItem>
-
       {!user ? (
         <>
           <MenuItem component={Link} to="/login" onClick={handleMobileMenuClose}>
@@ -149,7 +133,6 @@ export default function PrimarySearchAppBar() {
           <LoginIcon sx={{ mr: 1, color: "red" }} /> Logout
         </MenuItem>
       )}
-
       <MenuItem onClick={handleLangOpen}>
         <Box component="img" src={selectedLang.flag} alt="flag" sx={{ width: 24, height: 16, mr: 1 }} />
         {selectedLang.name}
@@ -163,7 +146,7 @@ export default function PrimarySearchAppBar() {
         <Toolbar sx={{ minHeight: 64, display: "flex", justifyContent: "space-between" }}>
           {/* Left: Menu + Logo */}
           <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-            <IconButton size="large" edge="start" color="inherit" sx={{ mr: 1 }}>
+            <IconButton size="large" edge="start" color="inherit">
               <MenuIcon />
             </IconButton>
             <Box
@@ -174,7 +157,7 @@ export default function PrimarySearchAppBar() {
                 height: 30,
                 filter: mode === "dark" ? "brightness(100%)" : "none",
                 cursor: "pointer",
-                display: { xs: "none", sm: "block" }, // hide on very small screens
+                display: { xs: "none", sm: "block" },
               }}
             />
           </Box>
@@ -199,7 +182,7 @@ export default function PrimarySearchAppBar() {
                 height: 30,
                 borderRadius: 20,
                 backgroundColor: mode === "dark" ? "#fff" : "#2f3542",
-                display: { xs: "none", sm: "flex" },
+                display: { xs: "flex" }, // always visible
                 alignItems: "center",
                 padding: "4px",
                 cursor: "pointer",
@@ -209,22 +192,10 @@ export default function PrimarySearchAppBar() {
               }}
             >
               <Brightness4Icon
-                sx={{
-                  position: "absolute",
-                  left: 8,
-                  fontSize: 16,
-                  color: mode === "dark" ? "#000" : "#fff",
-                  transition: "color 300ms ease",
-                }}
+                sx={{ position: "absolute", left: 8, fontSize: 16, color: mode === "dark" ? "#000" : "#fff" }}
               />
               <Brightness7Icon
-                sx={{
-                  position: "absolute",
-                  right: 8,
-                  fontSize: 16,
-                  color: mode === "dark" ? "#000" : "#FFD54F",
-                  transition: "color 300ms ease",
-                }}
+                sx={{ position: "absolute", right: 8, fontSize: 16, color: mode === "dark" ? "#000" : "#FFD54F" }}
               />
               <Box
                 sx={{
@@ -242,28 +213,11 @@ export default function PrimarySearchAppBar() {
 
             {/* Account */}
             <Box sx={{ display: { xs: "none", sm: "flex" }, alignItems: "center" }}>
-              <IconButton
-                color="inherit"
-                onClick={handleAccountOpen}
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  border: "1px solid rgba(255,255,255,0.08)",
-                  borderRadius: 1,
-                  padding: "2px 8px",
-                }}
-              >
-                <Typography variant="body2" sx={{ mr: 0.5 }}>
-                  Account
-                </Typography>
+              <IconButton color="inherit" onClick={handleAccountOpen} sx={{ display: "flex", alignItems: "center", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 1, padding: "2px 8px" }}>
+                <Typography variant="body2" sx={{ mr: 0.5 }}>Account</Typography>
                 <ArrowDropDownIcon />
               </IconButton>
-              <Menu
-                anchorEl={accountAnchorEl}
-                open={Boolean(accountAnchorEl)}
-                onClose={handleAccountClose}
-                PaperProps={{ sx: { mt: 1.5 } }}
-              >
+              <Menu anchorEl={accountAnchorEl} open={Boolean(accountAnchorEl)} onClose={handleAccountClose} PaperProps={{ sx: { mt: 1.5 } }}>
                 {!user ? (
                   <>
                     <MenuItem component={Link} to="/login" onClick={handleAccountClose}>
@@ -279,14 +233,8 @@ export default function PrimarySearchAppBar() {
                       <PersonAddAltIcon sx={{ mr: 1 }} /> {`Welcome, ${user.firstName || "User"}`}
                     </MenuItem>
                     {location.pathname.startsWith("/dashboard") && (
-                      <MenuItem
-                        onClick={() => {
-                          handleLogout();
-                          handleAccountClose();
-                        }}
-                      >
-                        <LoginIcon sx={{ mr: 1, color: "red" }} />
-                        Logout
+                      <MenuItem onClick={() => { handleLogout(); handleAccountClose(); }}>
+                        <LoginIcon sx={{ mr: 1, color: "red" }} /> Logout
                       </MenuItem>
                     )}
                   </>
@@ -296,49 +244,19 @@ export default function PrimarySearchAppBar() {
 
             {/* Language */}
             <Box sx={{ display: { xs: "none", md: "flex" } }}>
-              <IconButton
-                color="inherit"
-                onClick={handleLangOpen}
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  border: "1px solid rgba(255,255,255,0.08)",
-                  borderRadius: 1,
-                  padding: "2px 8px",
-                  ml: 1,
-                }}
-              >
+              <IconButton color="inherit" onClick={handleLangOpen} sx={{ display: "flex", alignItems: "center", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 1, padding: "2px 8px", ml: 1 }}>
                 <Box component="img" src={selectedLang.flag} alt="flag" sx={{ width: 24, height: 16, mr: 1 }} />
                 <Typography variant="body2">{selectedLang.name}</Typography>
                 <ArrowDropDownIcon />
               </IconButton>
-
               <Menu anchorEl={langAnchorEl} open={Boolean(langAnchorEl)} onClose={handleLangClose}>
                 <Typography sx={{ px: 2, pt: 1, fontWeight: "bold", fontSize: 13 }}>Language</Typography>
-                <MenuItem onClick={() => handleLanguageChange({ name: "Svenska", flag: FlagSE })}>
-                  <Box component="img" src={FlagSE} alt="Sweden" sx={{ width: 24, height: 16, mr: 1 }} />
-                  Svenska
-                </MenuItem>
-                <MenuItem onClick={() => handleLanguageChange({ name: "English", flag: FlagUK })}>
-                  <Box component="img" src={FlagUK} alt="English" sx={{ width: 24, height: 16, mr: 1 }} />
-                  English
-                </MenuItem>
-                <MenuItem onClick={() => handleLanguageChange({ name: "German", flag: FlagGE })}>
-                  <Box component="img" src={FlagGE} alt="German" sx={{ width: 24, height: 16, mr: 1 }} />
-                  German
-                </MenuItem>
-                <MenuItem onClick={() => handleLanguageChange({ name: "France", flag: FlagFR })}>
-                  <Box component="img" src={FlagFR} alt="France" sx={{ width: 24, height: 16, mr: 1 }} />
-                  French
-                </MenuItem>
-                <MenuItem onClick={() => handleLanguageChange({ name: "Italia", flag: FlagIT })}>
-                  <Box component="img" src={FlagIT} alt="Italy" sx={{ width: 24, height: 16, mr: 1 }} />
-                  Italia
-                </MenuItem>
-                <MenuItem onClick={() => handleLanguageChange({ name: "Japan", flag: FlagJP })}>
-                  <Box component="img" src={FlagJP} alt="Japan" sx={{ width: 24, height: 16, mr: 1 }} />
-                  Japanese
-                </MenuItem>
+                {[{ name: "Svenska", flag: FlagSE }, { name: "English", flag: FlagUK }, { name: "German", flag: FlagGE }, { name: "France", flag: FlagFR }, { name: "Italia", flag: FlagIT }, { name: "Japan", flag: FlagJP }].map((lang) => (
+                  <MenuItem key={lang.name} onClick={() => handleLanguageChange(lang)}>
+                    <Box component="img" src={lang.flag} alt={lang.name} sx={{ width: 24, height: 16, mr: 1 }} />
+                    {lang.name}
+                  </MenuItem>
+                ))}
               </Menu>
             </Box>
 
@@ -351,8 +269,6 @@ export default function PrimarySearchAppBar() {
           </Box>
         </Toolbar>
       </AppBar>
-
-      {/* Render Mobile Menu */}
       {renderMobileMenu}
     </Box>
   );
