@@ -15,7 +15,7 @@ import Volvotable from './components/Volvotable'
 import Toyota from './Toyota/Toyota.jsx'
 import RangeRover from './Range-Rover/RangeRover.jsx'
 import { createTheme } from '@mui/material'
-import Inspection from './pages/Inspection/Inspection.jsx'
+import Inspection from './pages/Inspection/Inspection-date.jsx'
 
 import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
