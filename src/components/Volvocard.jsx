@@ -4,10 +4,13 @@ import Volvoaid from '../assets/images/volvovideo2.mp4'
 import { Box, Container } from '@mui/material'
 import { Typography } from '@mui/material';
 import Volvoimagecollection from '../components/Volvoimagecollection'
+import Appbar from "../components/Appbar"
 
 const Volvocard = () => {
   return (
-    < Container className='all' sx={{width: 2000,}}>
+    <>
+    <Appbar/>
+    < Container className='all' sx={{width: 2000,marginTop:"70px"}}>
       <Typography variant='h3'sx={{ paddingLeft:'10px'}} ><span>Som</span>e Car Display</Typography>
     <div className="flex2">
         <div className="vid">
@@ -27,6 +30,7 @@ const Volvocard = () => {
     </div>
 
     </Container>
+    </>
   )
 }
 

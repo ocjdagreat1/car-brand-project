@@ -2,10 +2,13 @@ import React from "react";
 import { Box, Typography, Card, CardContent } from "@mui/material";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import Appbar from "../components/Appbar"
 
 function FreeMap() {
   return (
-    <Card sx={{ maxWidth: 1300, margin: "20px auto" }}>
+    <>
+    <Appbar/>
+    <Card sx={{ maxWidth: 1300, margin: "20px auto",marginTop:"70px" }}>
       <CardContent>
         <Typography variant="h4" gutterBottom>
           Locate Mercedes Company Here
@@ -27,6 +30,7 @@ function FreeMap() {
         </Box>
       </CardContent>
     </Card>
+    </>
   );
 }
 

@@ -20,6 +20,7 @@ const Footer = () => {
   const handleCloseFeedback = () => setOpenFeedback(false);
 
   const links = [
+    { label: "Home", path: "/" }, 
     { label: "About us", path: "/AboutUs" }, 
     { label: "About cookies", path: "/cookies" },
     { label: "Digital Service Book", path: "/digital" },
@@ -34,11 +35,7 @@ const Footer = () => {
         backgroundColor: "#1c1c1c",
         color: "white",
         py: 4,
-<<<<<<< HEAD
-        py: 2,
-=======
        py: 2,
->>>>>>> 288447b9080e6bc3d6427f59452a23fea631492b
         px: 2,
         width: "100vw",
         position: "relative",

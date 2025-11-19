@@ -1,11 +1,13 @@
 import React from 'react'
 import './Cookies.css'
 import { Container } from '@mui/material'
+import Appbar from "../components/Appbar"
 
 const Cookies = () => {
   return (
    
-         
+        <>
+        <Appbar/>
     <div className='cookie-body'>
     <div>
         <h1><span>Coo</span>kies </h1>
@@ -44,7 +46,7 @@ const Cookies = () => {
     </div>
 
     </div>
-    
+    </> 
     
   )
 }

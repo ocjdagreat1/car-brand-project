@@ -1,10 +1,14 @@
 import React from 'react'
 import './Degital.css'
 import { Container } from '@mui/material'
+import Appbar from "../components/Appbar"
 
 const Digital = () => {
   return (
+    <>
+    
    <Container>
+    <Appbar/>
      <div className='degital-body'>
         <h1><span>Sear</span>ch digital service book</h1>
         <hr />
@@ -33,6 +37,7 @@ const Digital = () => {
     
     </div>
    </Container>
+   </>
   )
 }
 

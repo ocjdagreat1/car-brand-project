@@ -21,10 +21,7 @@ const ToyotaDashboard = () => {
           variant="h4"
           sx={{
             fontWeight: "bold",
-<<<<<<< HEAD
-=======
             
->>>>>>> 288447b9080e6bc3d6427f59452a23fea631492b
             mb: 4,
           }}
         >
@@ -39,11 +36,8 @@ const ToyotaDashboard = () => {
            <Box
            key={index}
           sx={{
-<<<<<<< HEAD
-=======
               bgcolor: "#ffff",
             
->>>>>>> 288447b9080e6bc3d6427f59452a23fea631492b
               mb: 3,
               p: 0,
               pl:0,
@@ -61,10 +55,7 @@ const ToyotaDashboard = () => {
        <Box
         sx={{
           width:'50%',
-<<<<<<< HEAD
-=======
           bgcolor: "#ffff",
->>>>>>> 288447b9080e6bc3d6427f59452a23fea631492b
           p: 3,
           display: "grid",
         }}
@@ -76,10 +67,7 @@ const ToyotaDashboard = () => {
           sx={{
             width: "18vh",
             height: "14vh",
-<<<<<<< HEAD
-=======
             
->>>>>>> 288447b9080e6bc3d6427f59452a23fea631492b
             justifySelf:"flex-end",
             paddingTop:12,
           }}
@@ -88,11 +76,8 @@ const ToyotaDashboard = () => {
          
           <Box
           sx={{
-<<<<<<< HEAD
-=======
               bgcolor: "#ffff",
               
->>>>>>> 288447b9080e6bc3d6427f59452a23fea631492b
               mb: 3,
               p: 0,
               display: "grid",
@@ -106,11 +91,8 @@ const ToyotaDashboard = () => {
           </Box>
           <Box
           sx={{
-<<<<<<< HEAD
-=======
               bgcolor: "#ffff",
             
->>>>>>> 288447b9080e6bc3d6427f59452a23fea631492b
               mb: 3,
               p: 0,
               display: "grid",

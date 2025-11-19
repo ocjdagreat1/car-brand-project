@@ -1,3 +1,20 @@
-body{
-    margin: 0;
+/* DARK MODE (default) */
+:root[data-theme='dark'] {
+  --bg-color: #1c1c1c;
+  --text-color: #ffffff;
+  --card-bg: #2a2a2a;
+}
+
+/* LIGHT MODE */
+:root[data-theme='light'] {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --card-bg: #f5f5f5;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background 0.3s ease, color 0.3s ease;
+  margin: 0;
 }

@@ -8,6 +8,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import './Benztable.css'
 import { Box, Button, CircularProgress } from '@mui/material';
+import Appbar from "../components/Appbar"
 
 function createData(Cars, Class, Year, Price) {
   return { Cars, Class, Year, Price };
@@ -27,10 +28,12 @@ const rows = [
 export default function CarTable() {
   
   return (
+    <>
 
+    <Appbar/>
 
     <TableContainer component={Paper} className='table'>
-      <Box sx={{display: 'flex', alignItems: 'center', marginBottom:'5px'}}>
+      <Box sx={{display: 'flex', alignItems: 'center', marginBottom:'5px',marginTop:'100px'}}>
     <Button onClick={<CircularProgress/>} sx={{background: 'black', color:'white', padding:'16px 20px', marginLeft:'5px'}}>search</Button><input type="text" placeholder='Search car '/>
     </Box>
       <Table sx={{ minWidth: 650 }} aria-label="car table">
@@ -54,5 +57,6 @@ export default function CarTable() {
         </TableBody>
       </Table>
     </TableContainer>
+    </>
   );
 }
