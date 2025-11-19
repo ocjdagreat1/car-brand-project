@@ -35,7 +35,7 @@ const Footer = () => {
         backgroundColor: "#1c1c1c",
         color: "white",
         py: 4,
-       py: 2,
+
         px: 2,
         width: "100vw",
         position: "relative",
