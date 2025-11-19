@@ -24,7 +24,7 @@ const TeslaFeaturesSection = () => {
         sx={{
           display: "flex",
           flexDirection: { xs: "column", md: "row" },
-          gap: 2, // ✅ gap between video and image
+          gap: 2,
           width: "100%",
         }}
       >
@@ -32,10 +32,11 @@ const TeslaFeaturesSection = () => {
         <Box
           sx={{
             position: "relative",
-            flex: 2,
-            height: { xs: 400, md: 550 },
-            overflow: "hidden",
+            flex: { xs: "unset", md: 2 },
+            width: { xs: "100%", md: "auto" },
+            minHeight: { xs: 300, md: 550 },
             borderRadius: 2,
+            overflow: "hidden",
           }}
         >
           <video
@@ -52,7 +53,7 @@ const TeslaFeaturesSection = () => {
             }}
           />
 
-          {/* ✅ Play Button Overlay */}
+          {/* Play Button Overlay */}
           <IconButton
             onClick={handleVideoToggle}
             sx={{
@@ -61,48 +62,49 @@ const TeslaFeaturesSection = () => {
               left: "50%",
               transform: "translate(-50%, -50%)",
               backgroundColor: "rgba(255,255,255,0.75)",
-              width: 70,
-              height: 70,
+              width: 60,
+              height: 60,
               borderRadius: "50%",
               "&:hover": { backgroundColor: "rgba(255,255,255,1)" },
             }}
           >
-            <PlayArrowIcon sx={{ fontSize: 45, color: "#000" }} />
+            <PlayArrowIcon sx={{ fontSize: 40, color: "#000" }} />
           </IconButton>
 
-          {/* TEXT + BUTTONS */}
+          {/* Text + Buttons */}
           <Box
             sx={{
               position: "absolute",
-              bottom: 30,
-              left: 30,
+              bottom: 20,
+              left: 20,
               color: "#fff",
-              pb: 1, // ✅ slight gap from edge
             }}
           >
-            <Typography variant="h4" fontWeight={600} sx={{ mb: 2 }}>
+            <Typography variant="h5" fontWeight={600} sx={{ mb: 2 }}>
               Full Self-Driving (Supervised)
             </Typography>
-
-            <Box sx={{ display: "flex", gap: 2 }}>
+            <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
               <Button
                 variant="contained"
                 sx={{
                   backgroundColor: "#3b82f6",
                   textTransform: "none",
-                  px: 3,
+                  px: 2,
+                  py: 0.5,
+                  fontSize: { xs: "0.75rem", sm: "1rem" },
                 }}
               >
                 Demo Drive
               </Button>
-
               <Button
                 variant="contained"
                 sx={{
                   backgroundColor: "#fff",
                   color: "#000",
                   textTransform: "none",
-                  px: 3,
+                  px: 2,
+                  py: 0.5,
+                  fontSize: { xs: "0.75rem", sm: "1rem" },
                 }}
               >
                 Learn More
@@ -115,34 +117,35 @@ const TeslaFeaturesSection = () => {
         <Box
           sx={{
             position: "relative",
-            flex: 1,
-            height: { xs: 400, md: 550 },
+            flex: { xs: "unset", md: 1 },
+            width: { xs: "100%", md: "auto" },
+            minHeight: { xs: 300, md: 550 },
             backgroundImage: `url(${RedCarImage})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             borderRadius: 2,
           }}
         >
-          {/* TEXT + BUTTON */}
+          {/* Text + Button */}
           <Box
             sx={{
               position: "absolute",
-              bottom: 30,
-              left: 30,
+              bottom: 20,
+              left: 20,
               color: "#fff",
-              pb: 1, // ✅ slight spacing from bottom
             }}
           >
-            <Typography variant="h4" fontWeight={600} sx={{ mb: 2 }}>
+            <Typography variant="h5" fontWeight={600} sx={{ mb: 2 }}>
               Features That Come Standard
             </Typography>
-
             <Button
               variant="contained"
               sx={{
                 backgroundColor: "#3b82f6",
                 textTransform: "none",
-                px: 3,
+                px: 2,
+                py: 0.5,
+                fontSize: { xs: "0.75rem", sm: "1rem" },
               }}
             >
               Discover
