@@ -17,7 +17,7 @@ const FindYourCharge = () => {
   return (
     <Box
       sx={{
-        backgroundColor: "#fff",
+        backgroundColor: "background.paper",
         textAlign: "center",
         py: 6,
         px: 2,
@@ -83,7 +83,8 @@ const FindYourCharge = () => {
         <Button
           variant="outlined"
           sx={{
-            color: "black",
+            backgroundColor:"black",
+            color: "white",
             borderColor: "#ccc",
             px: 4,
             "&:hover": { borderColor: "black" },

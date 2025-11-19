@@ -6,9 +6,8 @@ import Appbar from "../components/Appbar"
 const Digital = () => {
   return (
     <>
-    
-   <Container>
     <Appbar/>
+   <Container>
      <div className='degital-body'>
         <h1><span>Sear</span>ch digital service book</h1>
         <hr />
