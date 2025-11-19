@@ -1,6 +1,6 @@
 import React from 'react'
 import './MercedesIntro.css'
-import benzlogo from '../assets/images/benzlogo.png'
+import benzlogo from '../assets/images/benzlogo.PNG'
 import { Container, Box, Button, } from '@mui/material'
 import { Link } from 'react-router-dom'
 
